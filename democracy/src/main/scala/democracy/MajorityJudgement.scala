@@ -77,7 +77,7 @@ case class Election(description: String, candidates: Set[Candidate]):
     // into a single sequence containing the grades assigned to each
     // candidate by the voters.
     val allGrades: Seq[(Candidate, Grade)] =
-    ballots.flatMap(x=> x.grades.keys.map(y => (y,x.grades(y))))
+    ballots.flatMap(x=> x.grades.toSeq)
 
     // Second step: use the operation `groupMap` to transform the
     // collection of pairs of `(Candidate, Grade)` into a `Map`
